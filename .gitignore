@@ -8,3 +8,7 @@ bin/
 *.log
 .DS_Store
 Thumbs.db
+
+# IntelliJ
+.idea/
+*.iml
