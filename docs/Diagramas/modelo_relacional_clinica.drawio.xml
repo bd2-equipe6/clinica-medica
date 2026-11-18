@@ -1,0 +1,285 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<mxfile host="app.diagrams.net" scale="1" border="0">
+  <diagram name="Modelo Relacional OLTP" id="rel">
+    <mxGraphModel dx="2906" dy="1167" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="0" pageScale="1" pageWidth="827" pageHeight="1169" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+        <mxCell id="pessoa" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="pessoa" vertex="1">
+          <mxGeometry height="298" width="300" x="360" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_0" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_1" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="nome: VARCHAR(120) NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_2" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="cpf: VARCHAR(11) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_3" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="email: VARCHAR(120)" vertex="1">
+          <mxGeometry height="22" width="300" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_4" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="telefone: VARCHAR(20)" vertex="1">
+          <mxGeometry height="22" width="300" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_5" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="data_nascimento: DATE" vertex="1">
+          <mxGeometry height="22" width="300" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_6" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="rua: VARCHAR(120)" vertex="1">
+          <mxGeometry height="22" width="300" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_7" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="numero: VARCHAR(10)" vertex="1">
+          <mxGeometry height="22" width="300" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_8" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="bairro: VARCHAR(80)" vertex="1">
+          <mxGeometry height="22" width="300" y="204" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_9" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="cidade: VARCHAR(80)" vertex="1">
+          <mxGeometry height="22" width="300" y="226" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_10" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="uf: CHAR(2)" vertex="1">
+          <mxGeometry height="22" width="300" y="248" as="geometry" />
+        </mxCell>
+        <mxCell id="pessoa_11" parent="pessoa" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="cep: VARCHAR(8)" vertex="1">
+          <mxGeometry height="22" width="300" y="270" as="geometry" />
+        </mxCell>
+        <mxCell id="convenio" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="convenio" vertex="1">
+          <mxGeometry height="100" width="300" x="40" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="convenio_0" parent="convenio" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="convenio_1" parent="convenio" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="nome: VARCHAR(80) NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="convenio_2" parent="convenio" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="percentual_desconto: NUMERIC(5,2)" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="especialidade" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="especialidade" vertex="1">
+          <mxGeometry height="78" width="300" x="1000" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="especialidade_0" parent="especialidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="especialidade_1" parent="especialidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="nome: VARCHAR(80) NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="unidade" vertex="1">
+          <mxGeometry height="232" width="300" x="1320" y="40" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_0" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_1" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="nome: VARCHAR(80) NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_2" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="telefone: VARCHAR(20)" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_3" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="rua: VARCHAR(120)" vertex="1">
+          <mxGeometry height="22" width="300" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_4" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="numero: VARCHAR(10)" vertex="1">
+          <mxGeometry height="22" width="300" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_5" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="bairro: VARCHAR(80)" vertex="1">
+          <mxGeometry height="22" width="300" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_6" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="cidade: VARCHAR(80)" vertex="1">
+          <mxGeometry height="22" width="300" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_7" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="uf: CHAR(2)" vertex="1">
+          <mxGeometry height="22" width="300" y="182" as="geometry" />
+        </mxCell>
+        <mxCell id="unidade_8" parent="unidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="cep: VARCHAR(8)" vertex="1">
+          <mxGeometry height="22" width="300" y="204" as="geometry" />
+        </mxCell>
+        <mxCell id="prontuario" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="prontuario" vertex="1">
+          <mxGeometry height="138" width="300" x="-60" y="452" as="geometry" />
+        </mxCell>
+        <mxCell id="prontuario_0" parent="prontuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="prontuario_1" parent="prontuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="data_abertura: DATE" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="prontuario_2" parent="prontuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="tipo_sanguineo: VARCHAR(12)" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="prontuario_3" parent="prontuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="alergias: VARCHAR(255)" vertex="1">
+          <mxGeometry height="22" width="300" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="prontuario_4" parent="prontuario" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="observacoes: TEXT" vertex="1">
+          <mxGeometry height="22" width="300" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="paciente" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="paciente" vertex="1">
+          <mxGeometry height="122" width="300" x="360" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="paciente_0" parent="paciente" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK FK  id: BIGINT (→ pessoa)" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="paciente_1" parent="paciente" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="data_cadastro: DATE" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="paciente_2" parent="paciente" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  convenio_id: BIGINT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="paciente_3" parent="paciente" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  prontuario_id: BIGINT UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="medico" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="medico" vertex="1">
+          <mxGeometry height="72" width="300" x="1040" y="460" as="geometry" />
+        </mxCell>
+        <mxCell id="medico_0" parent="medico" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK FK  id: BIGINT (→ pessoa)" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="medico_1" parent="medico" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="crm: VARCHAR(20) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="medico_especialidade" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="medico_especialidade" vertex="1">
+          <mxGeometry height="72" width="300" x="720" y="240" as="geometry" />
+        </mxCell>
+        <mxCell id="medico_especialidade_0" parent="medico_especialidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK FK  medico_id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="medico_especialidade_1" parent="medico_especialidade" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK FK  especialidade_id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="atendimento" vertex="1">
+          <mxGeometry height="182" width="300" x="710" y="582" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento_0" parent="atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento_1" parent="atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="data_hora: TIMESTAMP NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento_2" parent="atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="tipo_atendimento: VARCHAR(20)" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento_3" parent="atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="status_atendimento: VARCHAR(20)" vertex="1">
+          <mxGeometry height="22" width="300" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento_4" parent="atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  paciente_id: BIGINT NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento_5" parent="atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  medico_id: BIGINT NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="atendimento_6" parent="atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  unidade_id: BIGINT NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="160" as="geometry" />
+        </mxCell>
+        <mxCell id="item_atendimento" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="item_atendimento" vertex="1">
+          <mxGeometry height="160" width="300" x="710" y="1020" as="geometry" />
+        </mxCell>
+        <mxCell id="item_atendimento_0" parent="item_atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="item_atendimento_1" parent="item_atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="quantidade: INT NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="item_atendimento_2" parent="item_atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="valor_unitario: NUMERIC(12,2)" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="item_atendimento_3" parent="item_atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="desconto: NUMERIC(12,2)" vertex="1">
+          <mxGeometry height="22" width="300" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="item_atendimento_4" parent="item_atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  atendimento_id: BIGINT NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="item_atendimento_5" parent="item_atendimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  procedimento_id: BIGINT NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="138" as="geometry" />
+        </mxCell>
+        <mxCell id="procedimento" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="procedimento" vertex="1">
+          <mxGeometry height="138" width="300" x="360" y="1023" as="geometry" />
+        </mxCell>
+        <mxCell id="procedimento_0" parent="procedimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="procedimento_1" parent="procedimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="codigo: VARCHAR(20) UNIQUE NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="procedimento_2" parent="procedimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="nome: VARCHAR(120) NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="72" as="geometry" />
+        </mxCell>
+        <mxCell id="procedimento_3" parent="procedimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="valor_base: NUMERIC(12,2)" vertex="1">
+          <mxGeometry height="22" width="300" y="94" as="geometry" />
+        </mxCell>
+        <mxCell id="procedimento_4" parent="procedimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=2;" value="FK  categoria_id: BIGINT NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="116" as="geometry" />
+        </mxCell>
+        <mxCell id="categoria_procedimento" parent="1" style="swimlane;fontStyle=1;childLayout=stackLayout;horizontal=1;startSize=28;horizontalStack=0;resizeParent=1;resizeParentMax=0;resizeLast=0;collapsible=1;marginBottom=0;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" value="categoria_procedimento" vertex="1">
+          <mxGeometry height="72" width="300" x="-20" y="1056" as="geometry" />
+        </mxCell>
+        <mxCell id="categoria_procedimento_0" parent="categoria_procedimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;fontStyle=1;" value="PK  id: BIGINT" vertex="1">
+          <mxGeometry height="22" width="300" y="28" as="geometry" />
+        </mxCell>
+        <mxCell id="categoria_procedimento_1" parent="categoria_procedimento" style="text;strokeColor=none;fillColor=none;align=left;verticalAlign=middle;spacingLeft=6;html=0;" value="nome: VARCHAR(80) NOT NULL" vertex="1">
+          <mxGeometry height="22" width="300" y="50" as="geometry" />
+        </mxCell>
+        <mxCell id="e0" edge="1" parent="1" source="paciente" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToOne;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="pessoa">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e1" edge="1" parent="1" source="medico" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToOne;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;entryX=1;entryY=1;entryDx=0;entryDy=0;" target="pessoa">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="690" y="499" />
+              <mxPoint x="690" y="338" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e2" edge="1" parent="1" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERzeroToOne;startFill=0;endFill=0;strokeWidth=1.5;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" target="convenio">
+          <mxGeometry relative="1" x="0.0595" as="geometry">
+            <Array as="points">
+              <mxPoint x="280" y="491" />
+              <mxPoint x="280" y="180" />
+              <mxPoint x="190" y="180" />
+            </Array>
+            <mxPoint x="360" y="491" as="sourcePoint" />
+            <mxPoint x="190" y="110" as="targetPoint" />
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e3" edge="1" parent="1" source="paciente" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERmandOne;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="prontuario">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" edge="1" parent="1" source="medico_especialidade" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="medico">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" edge="1" parent="1" source="medico_especialidade" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="especialidade">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e6" edge="1" parent="1" source="atendimento_6" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;exitX=0.25;exitY=1;exitDx=0;exitDy=0;" target="paciente">
+          <mxGeometry relative="1" x="-0.1323" as="geometry">
+            <Array as="points">
+              <mxPoint x="785" y="814" />
+              <mxPoint x="500" y="814" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" edge="1" parent="1" source="atendimento" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="medico">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" edge="1" parent="1" source="atendimento" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="unidade">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1470" y="740" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e9" edge="1" parent="1" source="item_atendimento" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERoneToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="atendimento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e10" edge="1" parent="1" source="item_atendimento" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="procedimento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e11" edge="1" parent="1" source="procedimento" style="edgeStyle=orthogonalEdgeStyle;rounded=0;html=1;startArrow=ERzeroToMany;endArrow=ERmandOne;startFill=0;endFill=0;strokeWidth=1.5;" target="categoria_procedimento">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="nota" parent="1" style="shape=note;whiteSpace=wrap;html=0;align=left;verticalAlign=top;spacingLeft=8;spacingTop=6;fillColor=#fff2cc;strokeColor=#d6b656;" value="Notas do modelo&#xa;- Herança Pessoa → Paciente/Medico: estratégia JOINED (PK de paciente/medico é FK para pessoa)&#xa;- Endereco (@Embeddable) vira colunas em pessoa e unidade&#xa;- Enums gravados como texto (EnumType.STRING)&#xa;- medico_especialidade: tabela de junção do @ManyToMany&#xa;- convenio_id pode ser nulo (paciente particular)" vertex="1">
+          <mxGeometry height="130" width="520" x="1300" y="890" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>
