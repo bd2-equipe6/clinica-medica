@@ -1,15 +1,12 @@
 -- ETL - executa todos os passos e registra as contagens de linhas
 --
--- Primeira vez: rodar os scripts 01, 02, 03, 04 (que só criam as funções)
+-- Primeira vez: rodar os scripts 01 a 05 (que só criam as funções)
 -- e depois este. Nas próximas vezes (ex.: depois de cadastrar um atendimento
 -- pela aplicação), basta rodar:
 --
 --     SELECT * FROM staging.executar_etl();
 --
 -- Tudo roda numa única transação: se um passo falhar, nada é gravado no DW.
---
--- PENDENTE: carga da fato (passo 05), que depende da coluna
--- item_atendimento_id na fato_atendimento dos dois DDLs.
 
 CREATE OR REPLACE FUNCTION staging.executar_etl()
 RETURNS TABLE (execucao INT, tabela VARCHAR, linhas_antes BIGINT, linhas_depois BIGINT, diferenca BIGINT)
@@ -48,7 +45,9 @@ BEGIN
     PERFORM staging.carregar_dim_paciente_scd2('dw');
     PERFORM staging.carregar_dim_paciente_scd2('dw_floco');
 
-    -- 05 - fato (PENDENTE)
+    -- 05 - fato, carga incremental (depois de todas as dimensões)
+    PERFORM staging.carregar_fato('dw');
+    PERFORM staging.carregar_fato('dw_floco');
 
     -- Contagens depois
     UPDATE staging.log_carga l
