@@ -6,7 +6,7 @@ Trabalho da 2ª unidade de Banco de Dados II. Equipe 6 - tema: clínica médica 
 
 O trabalho tem duas etapas. Na primeira, fizemos o sistema OLTP em Java com JPA 2.1 + Hibernate 5.2.10 e PostgreSQL. Na segunda, os dados desse sistema vão para um Data Warehouse por meio de um processo de ETL, e depois são analisados com consultas OLAP e mineração de dados.
 
-**Situação atual:** Entrega 1 concluída. Estamos na Entrega 2 (Data Warehouse e ETL), que vai até **21/11**.
+**Situação atual:** Entregas 1 e 2 concluídas. Estamos na Entrega 3 (relatório técnico final), que vai até **28/11**.
 
 ## Equipe
 
@@ -82,12 +82,14 @@ clinica-medica/
 ├── docs/
 │   ├── Diagramas/          UML, modelo relacional, estrela e floco de neve
 │   ├── analise_dw.md       o que queremos analisar no DW
+│   ├── mineracao.md        técnica de mineração (Apriori) e como aplicar
 │   └── acompanhamento.md   prazos, commits e PRs de cada um
 ├── sql/                    (ver sql/README.md)
+│   ├── oltp/               DDL do banco do sistema (OLTP)
 │   ├── dw/                 DDL do modelo estrela e do floco de neve
 │   ├── etl/                staging, cargas, carga incremental e SCD 2
 │   ├── validacao/          conferência da carga e teste do fluxo completo
-│   └── olap/               consultas OLAP (Entrega 3)
+│   └── olap/               consultas OLAP
 └── src/main/
     ├── resources/META-INF/persistence.xml
     └── java/br/edu/bd2/clinica/
@@ -105,89 +107,99 @@ Pra pegar o EntityManager é só usar `JPAUtil.getEntityManager()`.
 
 Sistema OLTP funcionando: projeto Maven, entidades JPA, GenericDAO, 10 consultas JPQL, 3 Criteria, gerador de dados e interface com CRUD.
 
-## Entrega 2 - Data Warehouse e ETL (até 21/11)
+## Entrega 2 - concluída
+
+Data Warehouse carregado: modelos estrela e floco de neve, diagramas, DDLs, ETL com staging, dimensão Tempo, chaves substitutas, carga incremental, SCD tipo 2 no paciente, contagens antes e depois e scripts de validação.
+
+## Entrega 3 - Relatório técnico (até 28/11)
+
+Relatório em PDF, nas normas ABNT, com 12 a 20 páginas, no mínimo 6 referências (pelo menos 2 livros ou artigos) e as 13 questões de fixação respondidas. Cada conceito precisa de um exemplo tirado do nosso sistema.
 
 ### Prazos internos
 
-O ETL depende do DDL, e a validação depende do ETL. Se alguém atrasar, avisa no grupo na hora, pra gente reorganizar.
-
-| Quando | Quem | O quê |
-|---|---|---|
-| Qua 18/11 | Edson | Modelo estrela, floco de neve, diagramas e DDLs ✅ |
-| Qua 18/11 | Matheus | Organizar a pasta sql/, prazos e README ✅ |
-| Qui 19/11, até 12h | Edson | Acrescentar `item_atendimento_id` na tabela fato |
-| Qui 19/11, até 18h | Danton | Conferir os dados do OLTP e passar pro André os nomes das tabelas e colunas |
-| Qui 19/11, até 23h | André | Staging, dimensão Tempo e cargas das dimensões |
-| Sex 20/11, até 18h | André | Carga da fato, carga incremental, SCD tipo 2 e contagens de linhas |
-| Sex 20/11, até 22h | Jade | Validação da carga (OLTP x DW) |
-| Sex 20/11, até 23h | Matheus | Teste do fluxo completo, revisão e merge dos PRs |
-| Sáb 21/11, manhã | Todos | Correções finais e entrega |
+| Quando | O quê |
+|---|---|
+| Qua 25/11 | Consultas OLAP prontas |
+| Qui 26/11, até 22h | Cada integrante manda sua parte do relatório e suas questões para o líder |
+| Sex 27/11 | O líder junta e revisa, e todos leem o relatório inteiro |
+| Sáb 28/11 | Entrega do PDF |
 
 ### Quem faz o quê
 
-**1. Líder / Gerente do projeto - Matheus**
-- Organizar a pasta sql/ do repositório para os scripts do DW e do ETL. ✅
-- Definir os prazos internos da entrega. ✅
-- Acompanhar os commits de todos (em `docs/acompanhamento.md`).
-- Revisar e integrar os Pull Requests.
-- Testar o fluxo completo: inserir um atendimento pela aplicação, rodar o ETL e conferir se o dado chegou no DW (`TesteFluxoCompleto` + `sql/validacao/teste_fluxo_completo.sql`).
+**1. Líder / Gerente do projeto**
+- Juntar todas as partes num relatório só, nas normas ABNT.
+- Escrever a introdução, a conclusão e a seção de divisão de tarefas.
+- Montar as referências.
+- Escrever a declaração de uso de IA, indicando em quais partes foi usada.
+- Revisar o relatório inteiro e gerar o PDF final.
+- Montar os slides e o roteiro da demonstração ao vivo (inserção pela aplicação chegando ao DW depois do ETL).
+- Preparar a ata de participação para os 5 assinarem.
+- Entregar no AVA.
 
-**2. Arquiteto de dados - Edson**
-- Definir a granularidade da tabela fato: um procedimento realizado em um atendimento (`ItemAtendimento`). ✅
-- Projetar o modelo estrela, com 1 tabela fato com pelo menos 3 medidas e pelo menos 4 dimensões. ✅
-- Garantir a dimensão Tempo, com dia, mês, trimestre, semestre, ano e dia da semana. ✅
-- Projetar o modelo floco de neve, normalizando pelo menos 2 dimensões. ✅
-- Criar os diagramas dos dois modelos (`docs/Diagramas/`). ✅
-- Criar o script DDL de cada modelo, em esquema separado do OLTP (`sql/dw/`). ✅
-- **Ajuste:** acrescentar a coluna `item_atendimento_id` na fato dos dois modelos. Cada atendimento pode ter vários procedimentos, então é o id do item que identifica cada linha da fato, e a carga incremental precisa dele pra saber o que já foi carregado.
+Dependência: precisa das partes dos integrantes 2, 3, 4 e 5.
 
-**3. Desenvolvedor ORM - Danton**
-- Conferir se os dados do banco OLTP estão completos e consistentes.
-- Passar pro André as tabelas e colunas geradas pelo Hibernate.
-- Garantir que a aplicação consegue alterar a cidade de um paciente, para testar o SCD tipo 2.
-- Adiantar a parte teórica de ORM do relatório (questões de fixação 1 a 6).
+**2. Arquiteto de dados**
+- Relatório 2a: conceito de DW e Data Mart, Inmon e Kimball.
+- Relatório 2b: fato, dimensão, medida, granularidade, chave substituta e SCD tipos 1 e 2.
+- Relatório 2c: estrela x floco de neve (estrutura, vantagens, desvantagens e quando usar).
+- Questões 7, 8, 9 e 10.
+- Colocar no relatório os diagramas UML, relacional, estrela e floco de neve.
 
-**4. Engenheiro de ETL - André**
-- Criar a área de staging (esquema `staging`).
-- Implementar o ETL em SQL (procedures) ou em Java (`sql/etl/`).
-- Gerar a dimensão Tempo.
-- Criar as chaves substitutas (surrogate keys) das dimensões.
-- Tratar valores nulos e padronizar os textos.
-- Calcular as medidas derivadas (valor bruto = quantidade x valor unitário; valor líquido = valor bruto - desconto).
-- Implementar a carga incremental (carregar só os itens novos).
-- Implementar o SCD tipo 2 em uma dimensão (mudança de cidade do paciente).
-- Registrar as contagens de linhas antes e depois da carga.
+**3. Desenvolvedor ORM**
+- Relatório 1a a 1d: ORM e impedância, OQL, JPA 2.1 e Hibernate.
+- Justificar os fetch e cascade usados nas nossas entidades.
+- Questões 1 a 6.
+- DDL do OLTP em `sql/oltp/`.
 
-**5. Analista de BI e mineração - Jade**
-- Validar a carga do DW, comparando os totais do OLTP com os do DW (`sql/validacao/`).
-- Conferir se o SCD tipo 2 e a carga incremental funcionaram.
-- Adiantar as consultas OLAP da Entrega 3 (2 de cada: roll-up, drill-down, slice, dice e pivot).
-- Escolher a técnica de mineração (Apriori, k-means ou árvore de decisão).
+**4. Engenheiro de ETL**
+- Relatório 2d: ETL, staging, carga inicial x incremental, mostrando o nosso ETL com as contagens antes e depois e o SCD 2.
+- Relatório 2e: OLAP x OLTP, ROLAP, MOLAP e HOLAP.
+- Questão 11 (quadro OLTP x OLAP com pelo menos 8 critérios).
+- Medir o tempo da mesma consulta no OLTP, no modelo estrela e no floco de neve.
 
-### Checklist da Entrega 2
+Dependência: precisa de uma consulta OLAP do integrante 5 para a medição de tempo.
 
-- [x] Granularidade da tabela fato definida
-- [x] Diagrama do modelo estrela
-- [x] Diagrama do modelo floco de neve
-- [x] DDL do modelo estrela (esquema separado do OLTP)
-- [x] DDL do modelo floco de neve
-- [ ] `item_atendimento_id` na tabela fato
-- [ ] Área de staging
-- [ ] Dimensão Tempo gerada
-- [ ] Chaves substitutas nas dimensões
-- [ ] Tratamento de nulos e padronização de textos
-- [ ] Medidas derivadas
-- [ ] Carga incremental
-- [ ] SCD tipo 2 em uma dimensão
-- [ ] Contagens de linhas antes e depois da carga
-- [ ] Validação OLTP x DW
-- [ ] Teste do fluxo completo
+**5. Analista de BI e mineração**
+- Consultas OLAP: 2 de cada operação (roll-up, drill-down, slice, dice e pivot), em `sql/olap/`.
+- Mineração com Apriori: preparação dos dados, parâmetros, resultado e pelo menos 3 conclusões de negócio, com os arquivos no repositório.
+- Relatório 2f: KDD, tarefas e algoritmos.
+- Questões 12 e 13.
+
+### Situação em 26/11
+
+| Parte | Integrante | Situação |
+|---|---|---|
+| Relatório 1a a 1d, fetch e cascade, questões 1 a 6 | 3 | Entregue |
+| DDL do OLTP | 3 | Entregue (`sql/oltp/DDL_OLTP.sql`) |
+| Relatório 2a a 2c, questões 7 a 10 | 2 | Pendente |
+| Relatório 2d e 2e, questão 11, comparação de tempo | 4 | Pendente |
+| Consultas OLAP (10 consultas) | 5 | Entregue (`sql/olap/consultas_olap.sql`) |
+| Mineração: técnica escolhida (Apriori) | 5 | Entregue (`docs/mineracao.md`) |
+| Mineração: resultado, regras e conclusões | 5 | Pendente |
+| Relatório 2f, questões 12 e 13 | 5 | Pendente |
+| Introdução, conclusão, uso de IA, referências e revisão | 1 | Depois das outras partes |
+| Slides e ata de participação | 1 | Pendente |
+
+### Checklist da Entrega 3
+
+- [x] DDL do OLTP
+- [x] Consultas OLAP (2 de cada operação)
+- [ ] Comparação de tempo: OLTP x estrela x floco de neve
+- [ ] Resultado da mineração com pelo menos 3 conclusões
+- [x] Relatório: ORM, JPA e Hibernate (1a a 1d)
+- [ ] Relatório: Data Warehousing (2a a 2f)
+- [ ] Questões de fixação 1 a 13
+- [ ] Declaração de uso de IA
+- [ ] Referências (mínimo 6)
+- [ ] Relatório em PDF nas normas ABNT
+- [ ] Slides da apresentação
+- [ ] Ata de participação assinada pelos 5
 
 ## Datas do professor
 
 - 1ª entrega do relatório técnico: 16/11 (concluída)
-- 2ª entrega do relatório técnico: **21/11**
-- 3ª entrega do relatório técnico: 28/11
+- 2ª entrega do relatório técnico: 21/11 (concluída)
+- 3ª entrega do relatório técnico: **28/11**
 - Avaliação da IIª Unidade: 04/12
 - 2ª chamada: 09/12
 - Prova final: 14/12
